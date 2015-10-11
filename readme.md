@@ -4,6 +4,7 @@ Leaflet.GlobeMiniMap is a simple minimap control that places a 3d Globe in the c
 
 ![cursor_and_3d_minimap_and_minimap_ _bash_ _80x24_and_index_html_ _globe-minimap](https://cloud.githubusercontent.com/assets/1833820/10415088/cb1d45fe-6fb8-11e5-9903-2c2ec16fbabd.png)
 
+[Try the example out out now on github pages](http://chriswhong.github.io/leaflet-globeminimap/example/)
 
 ## Using the GlobeMiniMap control
 
