@@ -12,14 +12,14 @@
 
     // attach your plugin to the global 'L' variable
     if (typeof window !== 'undefined' && window.L) {
-        window.L.Control.MiniMap = factory(L);
-        window.L.control.minimap = function (layer, options) {
-        	return new window.L.Control.MiniMap(layer, options);
+        window.L.Control.GlobeMiniMap = factory(L);
+        window.L.control.globeminimap = function (layer, options) {
+        	return new window.L.Control.GlobeMiniMap(layer, options);
         };
     }
 }(function (L) {
 
-	var MiniMap = L.Control.extend({
+	var GlobeMiniMap = L.Control.extend({
 		options: {
 			position: 'bottomright',
 			width: 82,
@@ -160,10 +160,10 @@
 	
 	L.Map.addInitHook(function () {
 		if (this.options.miniMapControl) {
-			this.miniMapControl = (new MiniMap()).addTo(this);
+			this.miniMapControl = (new GlobeMiniMap()).addTo(this);
 		}
 	});
 	
-	return MiniMap;
+	return GlobeMiniMap;
 	
 }, window)); 
