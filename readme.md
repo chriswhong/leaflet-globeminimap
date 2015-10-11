@@ -2,6 +2,9 @@
 
 Leaflet.GlobeMiniMap is a simple minimap control that places a 3d Globe in the corner of your map, centered on the same location as the main map.  
 
+![cursor_and_3d_minimap_and_minimap_ _bash_ _80x24_and_index_html_ _globe-minimap](https://cloud.githubusercontent.com/assets/1833820/10415088/cb1d45fe-6fb8-11e5-9903-2c2ec16fbabd.png)
+
+
 ## Using the GlobeMiniMap control
 
 Leaflet.GlobeMiniMap requires d3.js & topojson.js.  You can load them from a CDN like this:
@@ -40,3 +43,4 @@ The marker SVG on the minimap is from [fontawesome via wikimedia.org](https://up
 ##Issues
 
 Please report issues on [github](https://github.com/chriswhong/leaflet-globe-minimap/issues).
+I am a noob at this plugin business, and am not sure if the /dist and build stuff is working properly, so any advice is greatly appreciated.  
