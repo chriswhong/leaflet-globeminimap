@@ -40,3 +40,4 @@ The marker SVG on the minimap is from [fontawesome via wikimedia.org](https://up
 ##Issues
 
 Please report issues on [github](https://github.com/chriswhong/leaflet-globe-minimap/issues).
+I am a noob at this plugin business, and am not sure if the /dist and build stuff is working properly, so any advice is greatly appreciated.  
