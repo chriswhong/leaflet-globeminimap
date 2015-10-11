@@ -18,7 +18,7 @@ The library is also looking for `/data/world.json`, so move it from /src to the 
 Add the globe minimap with one line of code:
     
 ```
-    var miniMap = new L.Control.MiniMap(options).addTo(map);
+    var miniMap = new L.Control.GlobeMiniMap(options).addTo(map);
 ```
 
 You can pass in an options object to define colors for the water, land and marker on the globe minimap:
