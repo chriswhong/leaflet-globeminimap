@@ -26,9 +26,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
-  <script src="minimap/src/Control.MiniMap.js"></script>
+  <script src="../src/Control.GlobeMiniMap.js"></script>
   <script>
-    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+    var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
 
@@ -40,7 +40,8 @@
 
     map.addLayer(layer);
 
-    var miniMap = new L.Control.MiniMap({
+    var miniMap = new L.Control.GlobeMiniMap({
+      //uncomment to assign colors
       // land:'#FFFF00',
       // water:'#3333FF',
       // marker:'#000000'
