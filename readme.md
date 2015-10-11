@@ -1,75 +1,42 @@
-# Leaflet.MiniMap
+# Leaflet.GlobeMiniMap
 
-Leaflet.MiniMap is a simple minimap control that you can drop into your leaflet map, and it will create a small map in the corner which shows the same as the main map with a set zoom offset. (By default it is -5.)
+Leaflet.GlobeMiniMap is a simple minimap control that places a 3d Globe in the corner of your map, centered on the same location as the main map.  
 
-## Using the MiniMap control
+## Using the GlobeMiniMap control
 
-The control can be inserted in two lines: First you have to construct a layer for it to use, and then you create and attach the minimap control. Don't reuse the layer you added to the main map, strange behaviour will ensue! Alternatively, you can pass in a LayerGroup with multiple layers (for example with overlays or suitably themed markers). Marker layers can't be reused either. (See issue #52 for a discussion of syncronising marker layers.)
+Leaflet.GlobeMiniMap requires d3.js & topojson.js.  You can load them from a CDN like this:
 
-From the [example](http://norkart.github.com/Leaflet-MiniMap/example.html):
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+```
+The library is also looking for `/data/world.json`, so move it from /src to the correct location.
+
+Add the globe minimap with one line of code:
     
-    var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
-    var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+```
+    var miniMap = new L.Control.MiniMap(options).addTo(map);
+```
 
-As the minimap control inherits from leaflet's control, positioning is handled automatically by leaflet. However, you can still style the minimap and set its size by modifying the css file.
+You can pass in an options object to define colors for the water, land and marker on the globe minimap:
 
-**Note:** Leaflet version 0.7.3 or higher is required.
+```
+{     
+  land:'#FFFF00',
+  water:'#3333FF',
+  marker:'#000000'
+}
+```
+The minimap is reactive, it only changes when the main map's center point changes.  You can't interact with the mini map to move the main map.
 
-###Example usage in CommonJS compatible environments (Node/Browserify)
+##Attribution
 
-    var MiniMap = require('leaflet-minimap');
-    new MiniMap(layer, options).addTo(map);
-    
-If you prefer ES6 style (for example with babel):
+The globe is build with d3, and is based on [World Tour](http://bl.ocks.org/mbostock/4183330) an excellent block by Mike Bostock.
 
-    import MiniMap from 'leaflet-minimap';
-    new MiniMap(layer, options).addTo(map);
+The code for the plugin was modified from [Leaflet.MiniMap](https://github.com/Norkart/Leaflet-MiniMap) by Robert Nordon
 
-###Example usage in AMD compatible environments (RequireJS)
+The marker SVG on the minimap is from [fontawesome via wikimedia.org](https://upload.wikimedia.org/wikipedia/commons/9/93/Map_marker_font_awesome.svg)
 
-    require(['leaflet-minimap'], function(MiniMap) {
-        new Minimap(layer, options).addTo(map);
-    });
-    
-## Available Methods
+##Issues
 
-`changeLayer:` Swaps out the minimap layer for the one provided. See the _layerchange_ example for hints on good uses.
-
-## Available Options
- The mini map uses options which can be set in the same way as other leaflet options, and these are the available options:
-
-`position:` The standard Leaflet.Control position parameter, used like all the other controls. Defaults to 'bottomright'.
-
-`width:` The width of the minimap in pixels. Defaults to 150.
-
-`height:` The height of the minimap in pixels. Defaults to 150.
-
-`collapsedWidth:` The width of the toggle marker and the minimap when collapsed, in pixels. Defaults to 19.
-
-`collapsedHeight:` The height of the toggle marker and the minimap when collapsed, in pixels. Defaults to 19.
-
-`zoomLevelOffset:` The offset applied to the zoom in the minimap compared to the zoom of the main map. Can be positive or negative, defaults to -5.
-
-`zoomLevelFixed:` Overrides the offset to apply a fixed zoom level to the minimap regardless of the main map zoom. Set it to any valid zoom level, if unset `zoomLevelOffset` is used instead.
-
-`zoomAnimation:` Sets whether the minimap should have an animated zoom. (Will cause it to lag a bit after the movement of the main map.) Defaults to false.
-
-`toggleDisplay:` Sets whether the minimap should have a button to minimise it. Defaults to false. 
-
-`autoToggleDisplay:` Sets whether the minimap should hide automatically if the parent map bounds does not fit within the minimap bounds. Especially useful when 'zoomLevelFixed' is set.
-
-`aimingRectOptions:` Sets the style of the aiming rectangle by passing in a [Path.Options object](http://leafletjs.com/reference.html#path-options). (Clickable will always be overridden and set to false.)
-
-`shadowRectOptions:` Sets the style of the aiming shadow rectangle by passing in a [Path.Options object](http://leafletjs.com/reference.html#path-options). (Clickable will always be overridden and set to false.)
-
-`strings:` Overrides the default strings allowing for translation. See below for available strings and `example/example_i18n.html` for an example.
-
-### Available Strings
-
-`hideText:` The text to be displayed as Tooltip when hovering over the toggle button on the MiniMap and it is visible. Defaults to 'Hide MiniMap'
-
-`showText:` The text to be displayed as Tooltip when hovering over the toggle button on the MiniMap and it is hidden. Defaults to 'Show MiniMap'
-
-##Building minified versions
-First, install node.js on your system. Then run `npm install` to get the dependencies, and `npm build` to build 
-the minified js and css.
+Please report issues on [github](https://github.com/chriswhong/leaflet-globe-minimap/issues).

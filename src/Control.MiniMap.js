@@ -100,7 +100,7 @@
 		    .context(this.c);
 
 		  var that = this;
-		  d3.json('minimap/src/world.json', function (world) {
+		  d3.json('data/world.json', function (world) {
 			  that.globe = {type: "Sphere"},
 	      that.land = topojson.feature(world, world.objects.land);
 			});

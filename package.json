@@ -1,8 +1,8 @@
 {
-  "name": "leaflet-minimap",
-  "version": "2.2.0",
-  "author": "Norkart AS",
-  "description": "A plugin for Leaflet that provides a minimap in the corner of the map view.",
+  "name": "leaflet-globe-minimap",
+  "version": "0.0.1",
+  "author": "Chris Whong",
+  "description": "A plugin for Leaflet that provides a 3d globe minimap in the corner of the map view.",
   "keywords": [
     "maps",
     "leaflet",
@@ -13,12 +13,12 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Norkart/Leaflet-MiniMap.git"
+    "url": "https://github.com/chriswhong/leaflet-globe-minimap.git"
   },
   "main": "dist/Control.MiniMap.min.js",
-  "homepage": "https://github.com/Norkart/Leaflet-MiniMap",
+  "homepage": "https://github.com/chriswhong/leaflet-globe-minimap",
   "bugs": {
-    "url": "https://github.com/Norkart/Leaflet-MiniMap/issues"
+    "url": "https://github.com/chriswhong/leaflet-globe-minimap.git/issues"
   },
   "dependencies": {
     "leaflet": ">=0.7.3"
@@ -32,8 +32,6 @@
   },
   "scripts": {
     "build:js": "uglifyjs  --output dist/Control.MiniMap.min.js src/Control.MiniMap.js",
-    "build:css": "cleancss  --skip-rebase --output dist/Control.MiniMap.min.css src/Control.MiniMap.css",
-    "build:img": "svgo src/images/toggle.svg dist/images/toggle.svg && node buildscripts/svgtopng.js",
-    "build": "npm run build:css && npm run build:js && npm run build:img"
+    "build": "npm run build:js"
   }
 }
