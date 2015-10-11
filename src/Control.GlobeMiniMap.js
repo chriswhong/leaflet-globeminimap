@@ -1,25 +1,18 @@
 // Following https://github.com/Leaflet/Leaflet/blob/master/PLUGIN-GUIDE.md
-(function (factory, window) {
+(function (factory, root) {
 
     // define an AMD module that relies on 'leaflet'
     if (typeof define === 'function' && define.amd) {
-        define(['leaflet'], factory);
-
+        define(['leaflet', 'd3', 'topojson'], factory);
     // define a Common JS module that relies on 'leaflet'
-    } else if (typeof exports === 'object') {
-        module.exports = factory(require('leaflet'));
+    } else if (typeof module !== 'undefined' && module.exports) {
+        module.exports = factory(require('leaflet'), require('d3'), require('topojson'));
+    }else {
+        factory(root.L, root.d3 , root.topojson);
     }
+}(function (L, d3, topojson) {
 
-    // attach your plugin to the global 'L' variable
-    if (typeof window !== 'undefined' && window.L) {
-        window.L.Control.GlobeMiniMap = factory(L);
-        window.L.control.globeminimap = function (layer, options) {
-        	return new window.L.Control.GlobeMiniMap(layer, options);
-        };
-    }
-}(function (L) {
-
-	var GlobeMiniMap = L.Control.extend({
+	L.Control.GlobeMiniMap = L.Control.extend({
 		options: {
 			position: 'bottomright',
 			width: 82,
@@ -27,7 +20,6 @@
 			land: "#bbb",
 			water: "rgba(0, 0, 0, 0.3)",
 			marker: "#CC0000"
-
 		},
 		
 		//layer is the map layer to be shown in the minimap
@@ -154,6 +146,10 @@
 	
 	
 	});
+
+  L.control.globeminimap = function (layer, options) {
+    return new L.Control.GlobeMiniMap(layer, options);
+  };
 	
 	L.Map.mergeOptions({
 		miniMapControl: false
@@ -164,7 +160,5 @@
 			this.miniMapControl = (new GlobeMiniMap()).addTo(this);
 		}
 	});
-	
-	return GlobeMiniMap;
-	
+		
 }, window)); 
