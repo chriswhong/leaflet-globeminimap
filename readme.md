@@ -34,6 +34,8 @@ The minimap is reactive, it only changes when the main map's center point change
 
 ##Attribution
 
+I saw this static 3d minimap and thought it would be a great plugin for leaflet.  [Static 3d Minimap](http://earthview.withgoogle.com/marshall-islands-6155)
+
 The globe is build with d3, and is based on [World Tour](http://bl.ocks.org/mbostock/4183330) an excellent block by Mike Bostock.
 
 The code for the plugin was modified from [Leaflet.MiniMap](https://github.com/Norkart/Leaflet-MiniMap) by Robert Nordon
