@@ -19,7 +19,8 @@
 			height: 82,
 			land: "#bbb",
 			water: "rgba(0, 0, 0, 0.3)",
-			marker: "#CC0000"
+			marker: "#CC0000",
+			topojsonSrc: 'data/world.json'
 		},
 		
 		//layer is the map layer to be shown in the minimap
@@ -93,7 +94,7 @@
 
 
 		  var that = this;
-		  d3.json('../src/world.json', function (world) {
+		  d3.json(this.options.topojsonSrc, function (world) {
 			  that.globe = {type: "Sphere"},
 	      that.land = topojson.feature(world, world.objects.land);
 			});
