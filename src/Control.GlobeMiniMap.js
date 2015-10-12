@@ -98,7 +98,8 @@
 	      that.land = topojson.feature(world, world.objects.land);
 			});
 
-			this.transitionMap(L.latLng([0,-90]));
+		  //set to current view
+			this.transitionMap(this._mainMap.getCenter());
 		},
 
 		transitionMap: function (p) {
@@ -125,11 +126,6 @@
 			this._mainMap.off('moveend', this._onMainMapMoved, this);
 			this._mainMap.off('move', this._onMainMapMoving, this);
 		},
-		
-	
-	
-	
-	
 	
 		_onMainMapMoved: function (e) {
 			console.log('mainmapmoved');
@@ -140,11 +136,8 @@
 	
 			} else {
 				this._miniMapMoving = false;
-			}
-		
+			}	
 		}
-	
-	
 	});
 
   L.control.globeminimap = function (layer, options) {
