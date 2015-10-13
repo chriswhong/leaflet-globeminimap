@@ -12,9 +12,9 @@ Leaflet.GlobeMiniMap requires d3.js & topojson.js.  You can load them from a CDN
 
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
 ```
-The library is also looking for `/data/world.json`, so move it from /src to the correct location.
+The library is also looking for `/data/world.json` in order to load the world topojson file. You can use the option `topojsonSrc` to define another source.
 
 Add the globe minimap with one line of code:
     
@@ -28,7 +28,8 @@ You can pass in an options object to define colors for the water, land and marke
 {     
   land:'#FFFF00',
   water:'#3333FF',
-  marker:'#000000'
+  marker:'#000000',
+  topojsonSrc: 'path/to/world.json'
 }
 ```
 The minimap is reactive, it only changes when the main map's center point changes.  You can't interact with the mini map to move the main map.
