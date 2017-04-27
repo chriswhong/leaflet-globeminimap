@@ -10,7 +10,7 @@
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+  <link rel="stylesheet" href="../node_modules/leaflet/dist/leaflet.css" />
   <style>
   #map,body,html{
     height:100%;
@@ -23,9 +23,9 @@
 
 <body>
   <div id="map"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+  <script src="../node_modules/d3/d3.min.js"></script>
+  <script src="../node_modules/topojson-client/dist/topojson-client.min.js"></script>
+  <script src="../node_modules/leaflet/dist/leaflet.js"></script>
   <script src="../src/Control.GlobeMiniMap.js"></script>
   <script>
     var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
