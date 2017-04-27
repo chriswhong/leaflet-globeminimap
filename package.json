@@ -26,7 +26,7 @@
     "topojson-client": "^3.0.0"
   },
   "devDependencies": {
-    "uglify-js": "2.4.16"
+    "uglify-js": "^2.8.0"
   },
   "scripts": {
     "build:js": "uglifyjs  --output dist/Control.MiniMap.min.js src/Control.MiniMap.js",
