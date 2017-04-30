@@ -34,7 +34,7 @@ You can pass in an options object to define colors for the water, land and marke
 ```
 The minimap is reactive, it only changes when the main map's center point changes.  You can't interact with the mini map to move the main map.
 
-##Attribution
+## Attribution
 
 I saw this static 3d minimap and thought it would be a great plugin for leaflet.  [Static 3d Minimap](http://earthview.withgoogle.com/marshall-islands-6155)
 
@@ -44,7 +44,7 @@ The code for the plugin was modified from [Leaflet.MiniMap](https://github.com/N
 
 The marker SVG on the minimap is from [fontawesome via wikimedia.org](https://upload.wikimedia.org/wikipedia/commons/9/93/Map_marker_font_awesome.svg)
 
-##Issues
+## Issues
 
 Please report issues on [github](https://github.com/chriswhong/leaflet-globe-minimap/issues).
 I am a noob at this plugin business, and am not sure if the /dist and build stuff is working properly, so advice and Pull Requests are welcome!  
